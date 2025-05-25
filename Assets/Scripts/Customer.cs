@@ -46,16 +46,17 @@ public class Customer : MonoBehaviour
 
     void StartNewDay()
     {
-        // 오늘 등장할 손님 리스트 초기화
+        // 일차 텍스트 업데이트
+        if (dayText != null)
+            dayText.text = $"{currentDay}일차";
+
+        // 손님 초기화 등 기존 로직
         todayCustomerList = orders.OrderBy(x => Random.value).Take(customersPerDay).ToList();
         customerIndex = 0;
-
-        goodCount = 0;
-        normalCount = 0;
-        badCount = 0;
-
         ShowNextCustomer();
     }
+
+    [SerializeField] private TMP_Text dayText;
 
 
 

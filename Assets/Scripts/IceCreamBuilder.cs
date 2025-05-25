@@ -71,7 +71,13 @@ public class IceCreamBuilder : MonoBehaviour
         );
 
         ClearCup(); // 컵 비우기
+
+        //아이스크림 UI 패널 닫기
+        if (iceCreamUIPanel != null)
+            iceCreamUIPanel.SetActive(false);
     }
+
+    [SerializeField] private GameObject iceCreamUIPanel;
 
 
     public void SetCustomerSystem(Customer cs)
